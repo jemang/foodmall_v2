@@ -1,0 +1,41 @@
+doctype html
+html
+  head
+    title FoodMall V2
+    meta content="text/html; charset=UTF-8" http-equiv="Content-Type" /
+    meta content="width=device-width, initial-scale=1, maximum-scale=1.0" name="viewport" /
+    meta content="/" name="turbolinks-root" 
+    //meta name="turbolinks-cache-control" content="no-cache"
+    meta name="turbolinks-cache-control" content="no-preview"
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': true
+    = javascript_include_tag 'application', 'data-turbolinks-track': true
+  body
+    nav class="navbar sticky-top navbar-dark bg-shadow" style="background-color: #{@color};"
+      a class="navbar-brand" href="#" FoodMall V2
+
+          
+    / aside
+    /  = render "layouts/sidebar"
+
+    main
+      .container
+        - if !notice.nil?
+          div class="alert alert-dismissible alert-success"
+            button type="button" class="close" data-dismiss="alert" &times;
+            div class="notice text-center" = notice
+        == yield
+      / - if devise_controller?
+      /   section#login
+      /     .container-fluid.pt-3
+      /       .row
+      /         .col.s4.offset-s4
+      /           == yield
+      / - else
+        .container
+            == yield
+      br
+      #modal.modal.fade aria-hidden="true" aria-labelledby="modal" role="dialog"
+      
+  footer
+    = render "layouts/footer"

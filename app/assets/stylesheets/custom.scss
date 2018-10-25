@@ -1,0 +1,106 @@
+// layout css 
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: #fcfcfc;
+  padding-bottom: 30px;
+}
+@media (min-width: 1000px){
+  .container {
+    max-width: 100%;
+  }
+}
+main {
+  flex: 1 0 auto;
+  padding-top: 25px;
+}
+.footer {
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+.bg-shadow {
+  box-shadow: 3px 4px 5px #230101;
+}
+.bg-modal {
+  background-color: #F5A540;
+}
+.container-modal {
+  padding-top: 20px;
+}
+
+// end
+
+.main-logo {
+  height: 3rem;
+  margin-top: 0.5rem;
+}
+   
+.cover {
+  background-color: #fff;
+}  
+
+.icon-container .icon-preview span {
+    text-align: left;
+    display: block;
+    font-size: 12px;
+}
+
+.icon-container i {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.btn {
+  margin-left: 10px;
+}
+
+.link-icon {
+  font-size: 16px;
+}
+
+// snackbar setting
+
+.snackbar {
+  transition-property: opacity, bottom, left, right, width, margin, border-radius;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+  // font-family: RobotoDraft;
+  font-size: 14px;
+  min-height: 14px;
+  background-color: #323232;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  line-height: 22px;
+  padding: 18px 24px;
+  bottom: 0px;
+  opacity: 0;
+}
+
+@media (min-width: 640px) {
+  .snackbar {
+    min-width: 288px;
+    max-width: 568px;
+    display: inline-flex;
+    border-radius: 2px;
+    margin: 24px;
+    // bottom: -100px;
+  }
+}
+
+@media (max-width: 640px) {
+  .snackbar {
+    left: 0px;
+    right: 0px;
+  }
+}
+// end

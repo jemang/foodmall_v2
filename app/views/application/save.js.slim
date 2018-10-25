@@ -1,0 +1,9 @@
+- if object.errors.any?
+  | $('#modal').html("#{ j(render 'form') }");
+  | $('#modal .modal-content').addClass('animated shake');
+- else
+  | $('#modal').modal('hide');
+  | $("table[id^=dttb]").DataTable().ajax.reload(null, false);
+
+= toast_now
+

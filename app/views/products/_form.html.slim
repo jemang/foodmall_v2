@@ -1,0 +1,21 @@
+.modal-dialog.modal-dialog-centered.modal-md
+  .modal-content
+    = simple_form_for(@product, html: {remote: true}) do |f|
+      .modal-header style="background-color: #{@color};"
+        h5.modal-title
+          | Product
+        button type="button" class="close" data-dismiss="modal" aria-label="Close"
+          span aria-hidden="true" &times;
+      .modal-body
+        .container-modal
+          = f.error_notification
+          = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+          .form-inputs
+            = f.input :item_name
+            = f.input :price
+            = f.input :description
+            = f.input :status
+
+          .form-actions
+            = f.button :submit

@@ -1,0 +1,13 @@
+.modal-dialog.modal-dialog-centered.modal-md
+  .modal-content
+    .modal-header.bg-modal
+      h5.modal-title Product Details
+      button type="button" class="close" data-dismiss="modal" aria-label="Close"
+        span aria-hidden="true" &times;
+    .modal-body
+      .container-modal
+        = show_for(@product) do |s|
+          = s.attribute :item_name
+          = s.attribute :price
+          = s.attribute :description
+          = s.attribute :status

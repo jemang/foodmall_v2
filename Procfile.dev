@@ -1,0 +1,6 @@
+web: bundle exec rails s -b 0.0.0.0 -p 4000
+# watcher: ./bin/webpack --colors --progress
+# webpacker: ./bin/webpack-dev-server
+
+#./bin/webpack --watch --progress --colors
+#./bin/webpack-dev-server --host 0.0.0.0
