@@ -81,8 +81,14 @@ module LinkHelper
   end
 
 
-  def link_to_icon icon, url_path, option={}
-    default_class = %w(link-icon icon material-icons) << option[:class]
+  def link_to_icon( icon, url_path, option={} )
+    if option[:name].present?
+      default_class = %w(link-icon) << option[:class]
+      name = option[:name]
+    else
+      default_class = %w(link-icon icon material-icons) << option[:class]
+      name = ""
+    end
     option[:class] = default_class.join(" ")   
     option[:data] = {} unless  option[:data]
     #icon = content_tag(:i, icon, class: "material-icons").html_safe
@@ -92,11 +98,14 @@ module LinkHelper
     else
       title = icon.titleize
     end
-    option[:title] = title
+    # option[:title] = title
     
     option[:data][:toggle] = "tooltip"
     option[:data][:disable_with] = "#{content_tag(:i, 'more_horiz', class: 'icon material-icons').html_safe}"
-    link_to icon, url_path, option
+    # link_to icon, url_path, option
+    link_to(url_path, option) do
+      "<i class='material-icons'>#{icon}</i> #{name}".html_safe
+    end
   end
 
 
@@ -144,9 +153,4 @@ module LinkHelper
   def edit_action?
     ["edit", "update"].include?(params[:action])
   end
-
-  # json.url default_action(  show:   {url: dns_geolocation_path(geo)},
-  #     			        edit:   {url: edit_dns_geolocation_path(geo)},
-  #                               delete: {url: dns_geolocation_path(geo)})
-  
 end

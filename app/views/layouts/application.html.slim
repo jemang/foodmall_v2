@@ -11,31 +11,34 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': true
     = javascript_include_tag 'application', 'data-turbolinks-track': true
   body
-    nav class="navbar sticky-top navbar-dark bg-shadow" style="background-color: #{@color};"
-      a class="navbar-brand" href="#" FoodMall V2
-
+    - if current_user
+      nav class="navbar sticky-top navbar-dark bg-shadow" style="background-color: #{@color};"
+        a class="navbar-brand" href="/" FoodMall V2
+        ul.nav.navbar-nav.ml-auto
+          li.nav-item.dropdown.no-caret
+            a.nav-icon.py-0.waves-light.waves-effect data-toggle="dropdown" href="#"
+              img.avatar.avatar-sm alt="profile picture" src="/user.png"
+            .dropdown-menu.dropdown-menu-right
+              = link_to_icon "account_box", user_path(current_user), class: "dropdown-item", name: "Profile Settings"
+              = link_to_icon "supervised_user_circle", impersonate_user_path(current_user), class: "dropdown-item", name: "Login as Admin"
+              = link_to_icon "exit_to_app", destroy_user_session_path,  data: {method: :delete}, class: "dropdown-item", name: "Logout"
           
     / aside
     /  = render "layouts/sidebar"
 
     main
       .container
-        - if !notice.nil?
-          div class="alert alert-dismissible alert-success"
-            button type="button" class="close" data-dismiss="alert" &times;
-            div class="notice text-center" = notice
-        == yield
-      / - if devise_controller?
-      /   section#login
-      /     .container-fluid.pt-3
-      /       .row
-      /         .col.s4.offset-s4
-      /           == yield
-      / - else
-        .container
-            == yield
+        - if devise_controller?
+          section#login
+            .container-fluid.pt-3
+              .row
+                .col.s4.offset-s4
+                  == yield
+        - else
+          == yield
       br
       #modal.modal.fade aria-hidden="true" aria-labelledby="modal" role="dialog"
-      
+
   footer
+    = alertify_flash
     = render "layouts/footer"

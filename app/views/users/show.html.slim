@@ -1,0 +1,43 @@
+.container
+  .row
+    .col-md-3
+      .card.card-full
+        .card-body.d-flex.justify-content-center style="max-height: 200px;height: 200px;"
+          / - if gravatar?(current_user)
+          /   img.rounded-circle alt="profile picture" src="https://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(current_user.email)}.png?d=404" height="150" width="150"
+          / - else
+          img.rounded-circle alt="profile picture" src="/user.png" height="150" width="150"
+        #list-tab.list-group role="tablist"
+          a#list-profile-list.list-group-item.list-group-item-action.active aria-controls="profile" data-toggle="list" href="#list-profile" role="tab"  Profile
+          a#list-messages-list.list-group-item.list-group-item-action aria-controls="messages" data-toggle="list" href="#list-messages" role="tab"  Account
+        .card-body
+
+    .col-md-9
+      #nav-tabContent.tab-content
+        #list-profile.tab-pane.fade.show.active aria-labelledby="list-home-list" role="tabpanel"
+          .card.card-full
+            .card-header
+              h3 Profile
+            .card-body
+              .row
+                .col-sm-10
+                  = show_for(current_user) do |a|
+                    = a.attribute :name
+                    = a.attribute :username
+                    = a.attribute :email
+                    = a.attribute :phone_no
+                    = a.attribute :status, value: :titleize
+                    = a.attribute :sign_in_count
+                    / = a.attribute :created_at, format: "%d-%m-%Y"
+                    / = a.attribute :current_sign_in_at, format: "%d-%m-%Y %H:%M"
+                    = a.attributes :current_sign_in_ip
+                    = a.attribute :last_sign_in_ip
+                    = a.attribute :last_sign_in_at, format: "%d-%m-%Y at %I:%M %p"
+                    = a.attribute :address
+
+        #list-messages.tab-pane.fade aria-labelledby="list-messages-list" role="tabpanel"
+          .card.card-full
+            .card-header
+              h3 Account
+            .card-body
+              #edit_form = render "form"

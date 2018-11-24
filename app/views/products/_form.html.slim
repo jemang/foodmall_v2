@@ -1,7 +1,7 @@
 .modal-dialog.modal-dialog-centered.modal-md
   .modal-content
     = simple_form_for(@product, html: {remote: true}) do |f|
-      .modal-header style="background-color: #{@color};"
+      .modal-header.bg-modal
         h5.modal-title
           | Product
         button type="button" class="close" data-dismiss="modal" aria-label="Close"
@@ -15,7 +15,8 @@
             = f.input :item_name
             = f.input :price
             = f.input :description
-            = f.input :status
+            - if edit_record_action?
+              = f.input :status, collection: Product.statuses.keys, include_blank: false
 
           .form-actions
-            = f.button :submit
+            = f.button :submit, class: "btn btn-primary btn-sm"

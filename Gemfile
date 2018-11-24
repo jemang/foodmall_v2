@@ -79,7 +79,8 @@ gem 'show_for'
 gem "responders"
 gem 'simple-navigation'
 gem 'snackbarjs-rails'
-# gem 'devise'
+gem 'alertifyjs-rails'
+gem 'devise'
 # gem 'whenever', require: false
 
 # gem 'bootstrap-daterangepicker-rails'

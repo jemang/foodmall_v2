@@ -1,0 +1,18 @@
+= simple_form_for(@user) do |f|
+  = f.error_notification
+  .form-row
+    = f.input :name, autofocus: true, wrapper_html: {class: "col-sm-6"}
+    = f.input :phone_no, wrapper_html: {class: "col-sm-6"}
+  .form-row
+    = f.input :username, required: true, autofocus: true, wrapper_html: {class: "col-sm-6"}
+    = f.input :email, required: true, wrapper_html: {class: "col-sm-6"}
+  .form-row
+    = f.input :address, wrapper_html: {class: "col-sm-12"}
+  / .form-row
+  /   = f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false, wrapper_html: {class: "col-sm-6"}
+  /   = f.input :password_confirmation, required: false, wrapper_html: {class: "col-sm-6"}
+  / .form-row    
+  /   = f.input :current_password, hint: "we need your current password to confirm your changes", required: true, wrapper_html: {class: "col-sm-12"}
+  .form-row
+    .col-12
+      = f.button :button, "Update", name: :commit, class: "float-right"

@@ -6,6 +6,12 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+config = YAML.load(File.read(File.expand_path('../application.yml', __FILE__)))
+config.merge! config.fetch(Rails.env, {})
+config.each do |key, value|
+  ENV[key] = value unless value.kind_of? Hash
+end
+
 module FoodmallV2
   class Application < Rails::Application
     # Use the responders controller from the responders gem

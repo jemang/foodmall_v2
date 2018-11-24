@@ -1,0 +1,31 @@
+div class="container"
+  div class="d-flex justify-content-center h-100"
+    div class="card"
+      div class="card-header"
+        h3 Sign In
+        div class="d-flex justify-content-end social_icon"
+          span
+            i class="fab fa-facebook-square"
+          span
+            i class="fab fa-google-plus-square"
+          span
+            i class="fab fa-twitter-square"
+      div class="card-body"
+        = simple_form_for(resource, as: resource_name, url: session_path(resource_name), defaults: { wrapper: false }) do |f|
+          div class="input-group form-group"
+            div class="input-group-prepend"
+              span class="input-group-text"
+                i class="material-icons md-18" account_circle
+            = f.input :login, required: false, placeholder: "Username or Email", label: false, autofocus: true, input_html: {value: "admin"}
+          
+          div class="input-group form-group"
+            div class="input-group-prepend"
+              span class="input-group-text"
+                i class="material-icons" vpn_key
+            = f.input :password, required: false, placeholder: "password", label: false, input_html: {value: "123456"}
+        
+          div class="form-group"
+            = f.submit "Log In", class: "btn float-right login_btn"
+      div class="card-footer"
+        .center style="color:white"
+          = render "devise/shared/links"

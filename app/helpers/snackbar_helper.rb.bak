@@ -1,3 +1,5 @@
+contoh customize notification
+
 module SnackbarHelper
   def toaster
     valid_toast = ["error", "message", "success", "warning"]

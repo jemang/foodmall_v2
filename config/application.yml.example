@@ -1,0 +1,6 @@
+development:
+  host: "localhost:3000"
+test:
+  host: "test.local"
+production:
+  host: "blog.example.com"

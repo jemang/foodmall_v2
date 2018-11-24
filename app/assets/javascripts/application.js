@@ -16,7 +16,8 @@
 //= require popper
 //= require bootstrap
 //= require material
-//= require snackbar
+//= require alertify
+//= require alertify/confirm-ujs
 //= require turbolinks
 //= require datatables
 //= require_tree .
