@@ -81,6 +81,7 @@ gem 'simple-navigation'
 gem 'snackbarjs-rails'
 gem 'alertifyjs-rails'
 gem 'devise'
+gem 'mini_magick'
 # gem 'whenever', require: false
 
 # gem 'bootstrap-daterangepicker-rails'

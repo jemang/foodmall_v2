@@ -2,10 +2,10 @@
   .card-body
     h5.card-title Listing Products
 
-    / table#dttb-products.table.table-hover.display.no-wrap.responsive data-source="#{url_for(format: :json)}" data-new="#{new_product_path}"
     table#dttb-products.table.table-hover.responsive.nowrap data-sort="true" data-source="#{url_for(format: :json)}"
       thead
         tr
+          th data-data="image"
           th data-data="item_name" Item name
           th data-data="price" Price
           th data-data="description" Description

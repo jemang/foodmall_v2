@@ -4,10 +4,11 @@
       h5.modal-title Product Details
       button type="button" class="close" data-dismiss="modal" aria-label="Close"
         span aria-hidden="true" &times;
+    = image_views(@product.image, "560x420")
     .modal-body
       .container-modal
         = show_for(@product) do |s|
           = s.attribute :item_name
           = s.attribute :price
-          = s.attribute :description
           = s.attribute :status
+          = s.attribute :description

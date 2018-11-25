@@ -17,6 +17,7 @@
             = f.input :description
             - if edit_record_action?
               = f.input :status, collection: Product.statuses.keys, include_blank: false
+            = f.input :image, as: :file
 
           .form-actions
-            = f.button :submit, class: "btn btn-primary btn-sm"
+            = f.button :submit, class: "btn btn-success btn-sm btn-right"
